@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+require('dotenv').config()
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -23,13 +24,19 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['~/plugins/libs'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    [
+      '@nuxtjs/dotenv',
+      {
+        filename: './config/.env',
+      },
+    ],
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
@@ -53,6 +60,7 @@ export default {
       lang: 'en',
     },
   },
+  loading: '~/components/common/Loading.vue',
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
