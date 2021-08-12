@@ -12,9 +12,13 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.8.3",
-    "nuxt": "^2.14.12"
+    "firebase": "^8.9.1",
+    "firebase-tools": "^9.16.0",
+    "nuxt": "^2.14.12",
+    "save": "^2.4.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",
