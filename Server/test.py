@@ -27,6 +27,8 @@ class Test:
         #Yusuke環境用
         self.driver = webdriver.Chrome(chrome_options=self.options)
 
+    
+
     def act(self,url):
         self.driver.get(url)
 
