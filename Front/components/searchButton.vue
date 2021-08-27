@@ -6,6 +6,7 @@
       label="Search"
       append-icon="mdi-magnify"
       @click:append="clickAction"
+      @keyup.enter="clickAction"
     ></v-text-field>
   </div>
 </template>
