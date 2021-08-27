@@ -6,6 +6,11 @@
       :label="item.label"
       :icon="item.icon"
     />
+    <v-row justify="center">
+      <v-btn fab color="grey lighten-5" @click="closeTab">
+        <v-icon color="grey darken-2">mdi-close</v-icon>
+      </v-btn>
+    </v-row>
   </v-container>
 </template>
 
@@ -40,6 +45,11 @@ export default {
         },
       ],
     }
+  },
+  methods: {
+    closeTab() {
+      this.$emit('close-filter')
+    },
   },
 }
 </script>
