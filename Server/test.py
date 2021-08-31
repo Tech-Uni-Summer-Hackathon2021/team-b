@@ -8,7 +8,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.chrome.options import Options
 
 # mac環境用
-import chromedriver_binary
+#import chromedriver_binary
 
 
 
