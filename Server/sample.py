@@ -11,7 +11,7 @@ import requests
 import json
 
 # mac環境用
-import chromedriver_binary
+#import chromedriver_binary
 
 import firebase_admin
 from firebase_admin import credentials
@@ -28,7 +28,10 @@ class Syllabus:
         # self.options.add_argument('--headless')
         self.options.add_argument('--window-size=1920,1080')
         #mac環境用
-        self.driver = webdriver.Chrome(chrome_options=self.options)
+        #self.driver = webdriver.Chrome(chrome_options=self.options)
+
+        #tsukasa環境用
+        self.driver = webdriver.Chrome('/Users/tsukasa/Downloads/chromedriver 2')
 
         # Use a service account（Firebase）
         cred = credentials.Certificate('serviceAccount.json')
@@ -67,36 +70,36 @@ class Syllabus:
                 self.driver.find_element_by_xpath(f'//*[@id="contents"]/div[1]/div[2]/table/tbody/tr[{num}]/td[1]/input[1]').click()
 
                 classcode = self.driver.find_element_by_name('lblLsnCd').get_attribute("value")
-                administrativedepartment = self.driver.find_element_by_name('lblAc119ScrDispNm').get_attribute("value")
-                coursenumber = self.driver.find_element_by_name('lblRepSbjKnjNm').get_attribute("value")
-                instructor = self.driver.find_element_by_name('lstChagTch_st[0].lblTchName').get_attribute("value")
-                dayandperiod = self.driver.find_element_by_name('lstSlbtchinftJ002List_st[0].lblTmtxCd').get_attribute("value")
+                # administrativedepartment = self.driver.find_element_by_name('lblAc119ScrDispNm').get_attribute("value")
+                # coursenumber = self.driver.find_element_by_name('lblRepSbjKnjNm').get_attribute("value")
+                # instructor = self.driver.find_element_by_name('lstChagTch_st[0].lblTchName').get_attribute("value")
+                # dayandperiod = self.driver.find_element_by_name('lstSlbtchinftJ002List_st[0].lblTmtxCd').get_attribute("value")
               
                 print(i)
                 print(classcode)
-                print(administrativedepartment)
-                print(coursenumber)
-                print(instructor)
+                # print(administrativedepartment)
+                # print(coursenumber)
+                # print(instructor)
 
 
                 doc_ref = self.db.collection('subject')
-                doc_ref.document(f'{department[i].text}').collection((num)).document().set({
+                doc_ref.document('a').collection('b').document().set({
                     '授業コード': classcode,
-                    '管理部署': administrativedepartment,
-                    '科目': coursenumber,
-                    '担当教授': instructor,
-                    '曜時': dayandperiod
-                })
+                #     '管理部署': administrativedepartment,
+                #     '科目': coursenumber,
+                #     '担当教授': instructor,
+                #     '曜時': dayandperiod
+                 })
 
 
-                # jsonに格納
-                classinfo.setdefault(classcode, { 
-                    '管理部署': administrativedepartment,
-                    '科目': coursenumber,
-                    '担当教授': instructor,
-                    '曜時': dayandperiod,
-                })        
-                print(f'{classinfo}')
+                # # jsonに格納
+                # classinfo.setdefault(classcode, { 
+                #     '管理部署': administrativedepartment,
+                #     '科目': coursenumber,
+                #     '担当教授': instructor,
+                #     '曜時': dayandperiod,
+                # })        
+                # print(f'{classinfo}')
 
                 # ページをスクロールして戻るボタンをクリック
                 sleep(1)
