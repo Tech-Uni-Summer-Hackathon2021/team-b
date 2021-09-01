@@ -33,7 +33,7 @@ class Syllabus:
         self.driver = webdriver.Chrome('/Users/tsukasa/Downloads/chromedriver 2')
 
         # Use a service account（Firebase）
-        cred = credentials.Certificate('serviceAccount.json')
+        cred = credentials.Certificate('ServiceAccount.json')
         firebase_admin.initialize_app(cred)
         self.db = firestore.client()
 
@@ -71,12 +71,12 @@ class Syllabus:
           classinfo = {}
           self.driver.find_element_by_name
 
-
-          for i in range(100):
+          for z in range(100):
             print('始まり')
             for num in range(2,max_num+2):
                     sleep(1)
                     self.driver.find_element_by_xpath(f'//*[@id="contents"]/div[1]/div[2]/table/tbody/tr[{num}]/td[1]/input[1]').click()
+                    sleep(1)
 
                     classcode = self.driver.find_element_by_name('lblLsnCd').get_attribute("value")
                     campus = self.driver.find_element_by_name('lblCc019ScrDispNm').get_attribute("value")
@@ -114,11 +114,12 @@ class Syllabus:
                     print(goals)
                     print(format)
                     print(classroom)
+                    print(z)
                     print('')
                     #print(dayandperiod)
 
                     doc_ref = self.db.collection('selenium')
-                    doc_ref.document('serect').collection('scraping').document().set({
+                    doc_ref.document('sampustest').collection('sanndarikou').document().set({
                         '授業コード': classcode,
                         'キャンパス': campus,
                         '学部': administrativedepartment,
@@ -139,16 +140,17 @@ class Syllabus:
                     })
 
                     # ページをスクロールして戻るボタンをクリック
-                    sleep(1)
+                    sleep(2)
                     self.driver.find_element_by_tag_name('body').click()
                     self.driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
                     sleep(1)
 
-                    self.driver.find_element_by_xpath('//*[@id="contents"]/div[2]/input').click()
+                    self.driver.find_element_by_name('EBack').click()
                   
             codenumber1 = self.driver.find_element_by_name('lstSlbinftJ016RList_st[0].lblLsnCd')
 
             self.driver.find_element_by_name('ENext').click()
+            sleep(1)
 
             codenumber2 = self.driver.find_element_by_name('lstSlbinftJ016RList_st[0].lblLsnCd')
 
