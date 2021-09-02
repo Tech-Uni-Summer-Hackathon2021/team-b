@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import { db } from '~/plugins/firebase'
+
 export default {
   name: 'Index',
   data() {
@@ -78,6 +80,22 @@ export default {
       ],
     }
   },
+  mounted() {
+    db.collection('syllabus').doc('abc').set(
+      {
+        name: 'test',
+        review: 4,
+      },
+      {
+        name: 'test',
+        review: 4,
+      }
+    )
+
+    // .onSnapshot((doc) => {
+    //   console.log(doc.data())
+    // })
+  },
 }
 </script>
 
@@ -85,6 +103,8 @@ export default {
 .table {
   backdrop-filter: blur(2px);
   background-color: rgba(255, 255, 255, 0.8);
+  //height: 500px;
+  width: 800px;
 }
 </style>
 <style>

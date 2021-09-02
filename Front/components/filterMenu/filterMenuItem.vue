@@ -5,6 +5,7 @@
         menu-props="auto"
         :label="label"
         :prepend-inner-icon="icon"
+        :items="item"
         dense
         solo
       ></v-select>
@@ -18,6 +19,7 @@ export default {
   props: {
     label: String,
     icon: String,
+    item: String,
   },
 }
 </script>

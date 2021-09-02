@@ -13,27 +13,29 @@
       </v-tab-item>
 
       <v-tab-item class="tab">
-        <v-row>
-          <v-col>教授名</v-col>
-          <v-col>丸先生</v-col>
-        </v-row>
+        <review />
       </v-tab-item>
+
       <v-tab-item class="tab">
-        <v-row> 過去問</v-row>
+        <old-question />
       </v-tab-item>
     </v-tabs>
   </div>
 </template>
+
 <script>
+import OldQuestion from '~/components/oldQuestion'
+
 export default {
-  name: 'Review',
+  name: 'Result',
+  components: { OldQuestion },
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .tab-container {
-  height: 400px;
-  width: 700px;
+  height: 500px;
+  width: 800px;
   backdrop-filter: blur(2px);
   background-color: rgba(255, 255, 255, 0.8);
 }

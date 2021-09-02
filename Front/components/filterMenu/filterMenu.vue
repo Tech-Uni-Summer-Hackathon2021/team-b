@@ -5,6 +5,7 @@
       :key="item.label"
       :label="item.label"
       :icon="item.icon"
+      :items="item.item"
     />
     <v-row justify="center">
       <v-btn fab color="grey lighten-5" @click="closeTab">
@@ -26,6 +27,7 @@ export default {
         {
           label: 'キャンパス',
           icon: 'mdi-office-building',
+          item: ['上ヶ原', 'sanda'],
         },
         {
           label: '学部',
