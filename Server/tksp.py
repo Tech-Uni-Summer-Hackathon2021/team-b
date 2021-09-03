@@ -71,79 +71,84 @@ class Syllabus:
           classinfo = {}
           self.driver.find_element_by_name
 
+          for x in range(1,6):
+              self.driver.find_element_by_name('ENext').click()
+              sleep(1)
+
           for z in range(100):
             print('始まり')
+                    
             for num in range(2,max_num+2):
                     sleep(1)
                     self.driver.find_element_by_xpath(f'//*[@id="contents"]/div[1]/div[2]/table/tbody/tr[{num}]/td[1]/input[1]').click()
                     sleep(1)
 
                     classcode = self.driver.find_element_by_name('lblLsnCd').get_attribute("value")
-                    campus = self.driver.find_element_by_name('lblCc019ScrDispNm').get_attribute("value")
-                    administrativedepartment = self.driver.find_element_by_name('lblAc119ScrDispNm').get_attribute("value")
-                    classtitle = self.driver.find_element_by_name('lblRepSbjKnjNm').get_attribute("value")
-                    dayandperiod = self.driver.find_element_by_name('lstSlbtchinftJ002List_st[0].lblTmtxCd').get_attribute("value")
-                    term = self.driver.find_element_by_name('lblAc201ScrDispNm_01').get_attribute("value")
-                    date = dayandperiod[0:2]
-                    period = dayandperiod[2:5]
-                    year = self.driver.find_element_by_name('lblLsnOpcFcy').get_attribute("value")
-                    credit = self.driver.find_element_by_name('lblSbjCrnum').get_attribute("value")
-                    instructor = self.driver.find_element_by_name('lstChagTch_st[0].lblTchName').get_attribute("value")
-                    standardyear = self.driver.find_element_by_name('lblCc004ScrDispNm').get_attribute("value")
-                    language = self.driver.find_element_by_name('lblVolCd1').get_attribute("value")
-                    special = self.driver.find_element_by_name('lblVolItm1').get_attribute("value")
-                    purpose = self.driver.find_element_by_name('lblVolItm2').get_attribute("value")
-                    goals = self.driver.find_element_by_name('lblVolItm3').get_attribute("value")
-                    format = self.driver.find_element_by_name('lblVolItm43').get_attribute("value")
-                    classroom = self.driver.find_element_by_name('lstSlbtchinftJ002List_st[0].lblClrNm').get_attribute("value")
+        #             # campus = self.driver.find_element_by_name('lblCc019ScrDispNm').get_attribute("value")
+        #             # administrativedepartment = self.driver.find_element_by_name('lblAc119ScrDispNm').get_attribute("value")
+        #             # classtitle = self.driver.find_element_by_name('lblRepSbjKnjNm').get_attribute("value")
+        #             # dayandperiod = self.driver.find_element_by_name('lstSlbtchinftJ002List_st[0].lblTmtxCd').get_attribute("value")
+        #             # term = self.driver.find_element_by_name('lblAc201ScrDispNm_01').get_attribute("value")
+        #             # date = dayandperiod[0:2]
+        #             # period = dayandperiod[2:5]
+        #             # year = self.driver.find_element_by_name('lblLsnOpcFcy').get_attribute("value")
+        #             # credit = self.driver.find_element_by_name('lblSbjCrnum').get_attribute("value")
+        #             # instructor = self.driver.find_element_by_name('lstChagTch_st[0].lblTchName').get_attribute("value")
+        #             # standardyear = self.driver.find_element_by_name('lblCc004ScrDispNm').get_attribute("value")
+        #             # language = self.driver.find_element_by_name('lblVolCd1').get_attribute("value")
+        #             # special = self.driver.find_element_by_name('lblVolItm1').get_attribute("value")
+        #             # purpose = self.driver.find_element_by_name('lblVolItm2').get_attribute("value")
+        #             # goals = self.driver.find_element_by_name('lblVolItm3').get_attribute("value")
+        #             # format = self.driver.find_element_by_name('lblVolItm43').get_attribute("value")
+        #             # classroom = self.driver.find_element_by_name('lstSlbtchinftJ002List_st[0].lblClrNm').get_attribute("value")
 
                     print(classcode)
-                    print(classtitle)
-                    print(campus)
-                    print(year)
-                    print(administrativedepartment)
-                    print(date)
-                    print(period)
-                    print(term)
-                    print(credit)
-                    print(instructor)
-                    print(standardyear)
-                    print(language)
-                    print(special)
-                    print(purpose)
-                    print(goals)
-                    print(format)
-                    print(classroom)
-                    print(z)
+        #             # print(classtitle)
+        #             # print(campus)
+        #             # print(year)
+        #             # print(administrativedepartment)
+        #             # print(date)
+        #             # print(period)
+        #             # print(term)
+        #             # print(credit)
+        #             # print(instructor)
+        #             # print(standardyear)
+        #             # print(language)
+        #             # print(special)
+        #             # print(purpose)
+        #             # print(goals)
+        #             # print(format)
+        #             # print(classroom)
+        #             # print(z)
                     print('')
-                    #print(dayandperiod)
+        #             #print(dayandperiod)
 
-                    doc_ref = self.db.collection('selenium')
-                    doc_ref.document('sampustest').collection('sanndarikou').document().set({
+                    doc_ref = self.db.collection('review')
+                    doc_ref.document('campuslife').collection('sanndacampus').document().set({
                         '授業コード': classcode,
-                        'キャンパス': campus,
-                        '学部': administrativedepartment,
-                        '学期': term,
-                        '科目': classtitle,
-                        '曜日': date,
-                        '時限': period,
-                        '開講年度': year,
-                        '単位数': credit,
-                        '担当者': instructor,
-                        '履修基準年度': standardyear,
-                        '主な教授言語': language,
-                        '特記事項': special,
-                        '授業目的': purpose,
-                        '到達目標': goals,
-                        '授業方法': format,
-                        '教室情報': classroom
+        #                 # 'キャンパス': campus,
+        #                 # '学部': administrativedepartment,
+        #                 # '学期': term,
+        #                 # '科目': classtitle,
+        #                 # '曜日': date,
+        #                 # '時限': period,
+        #                 # '開講年度': year,
+        #                 # '単位数': credit,
+        #                 # '担当者': instructor,
+        #                 # '履修基準年度': standardyear,
+        #                 # '主な教授言語': language,
+        #                 # '特記事項': special,
+        #                 # '授業目的': purpose,
+        #                 # '到達目標': goals,
+        #                 # '授業方法': format,
+        #                 # '教室情報': classroom
                     })
 
                     # ページをスクロールして戻るボタンをクリック
-                    sleep(2)
-                    self.driver.find_element_by_tag_name('body').click()
-                    self.driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
-                    sleep(1)
+                    # sleep(3)
+                    # self.driver.find_element_by_tag_name('body').click()
+                    # self.driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+                    # sleep(1)
 
                     self.driver.find_element_by_name('EBack').click()
                   
@@ -156,6 +161,36 @@ class Syllabus:
 
             if codenumber1 == codenumber2:
               break
+
+
+          #エラーが起き
+          # た際の応急処置
+
+        #   for x in range(1,5):
+        #       self.driver.find_element_by_name('ENext').click()
+        #       sleep(1)
+            
+        #   for y in range(85,max_num+2):
+        #         sleep(1)
+        #         self.driver.find_element_by_xpath(f'//*[@id="contents"]/div[1]/div[2]/table/tbody/tr[{y}]/td[1]/input[1]').click()
+        #         sleep(1)
+
+        #         classcode = self.driver.find_element_by_name('lblLsnCd').get_attribute("value")
+
+        #         print(classcode)
+
+        #         print('')
+
+        #         doc_ref = self.db.collection('review')
+        #         doc_ref.document('campuslife').collection('sanndacampus').document().set({
+        #         '授業コード': classcode,
+        #         })
+
+        #         self.driver.find_element_by_name('EBack').click()
+
+        # self.driver.find_element_by_name('ENext').click()
+        # sleep(1)
+
 
                   
 
