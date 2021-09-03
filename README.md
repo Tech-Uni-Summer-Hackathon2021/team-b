@@ -5,9 +5,7 @@
 
 
 ## プロダクト名 / Product name
-　 <b>KG_Hack</b><br>[ServiceAccount.json.zip](https://github.com/Tech-Uni-Summer-Hackathon2021/team-b/files/7107803/ServiceAccount.json.zip)
-
- 
+　 <b>KG_Hack</b><br><img width="1440" alt="Screen Shot 2021-09-04 at 1 35 22" src="https://user-images.githubusercontent.com/78252529/132049890-85b8148d-2e3f-4ca5-8fe4-60a9737d7aa0.png">
   
 ## プロダクト説明 / Product description
 <b>関西学院大学の授業に学生がレビューを通し授業に関する情報や過去問の共有を行えるサービスです。</b><br>
@@ -24,7 +22,7 @@ This can definately help them to find the most suitable courses and reduce the r
 * サインアップする
 * ログインする
 * キーワードで授業検索（条件で絞り込む）
-* シラバス情報、レビュー、レーティング、過去問が確認できる
+* シラバス情報、レビュー、レーティング、過去問が確認できる<br>
 
 * signup
 * login
