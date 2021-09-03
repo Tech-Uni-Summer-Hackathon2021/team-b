@@ -1,8 +1,5 @@
 <template>
   <div class="tab-item-wrapper">
-    <section>
-      <p>{{ $route.params.id }}</p>
-    </section>
     <v-row v-if="editMode" class="flex-column">
       <div class="text-center">
         <span>あなたの評価</span>
@@ -24,7 +21,9 @@
         </v-btn>
       </div>
     </v-row>
-    <v-row v-else> </v-row>
+    <v-row v-else>
+      <div v-for="(item, index) in temp" :key="index">{{ item }}</div>
+    </v-row>
     <v-btn fab light class="tab-item-wrapper__button" @click="toggleMode">
       <v-icon v-if="!editMode">mdi-pencil</v-icon>
       <v-icon v-else>mdi-close</v-icon>
@@ -37,28 +36,52 @@ import { db } from '~/plugins/firebase'
 
 export default {
   name: 'Review',
+  props: {
+    id: String,
+  },
   data() {
     return {
+      temp: [],
       writtenReview: {
         rating: '',
         post: '',
+        userid: '',
+        date: '',
+        classid: '',
       },
       editMode: false,
     }
   },
   mounted() {
-    console.log(this.$route.params.slug)
+    this.readSample()
   },
   methods: {
+    async readSample() {
+      const docRef = db.collection(
+        `courses/campus/sanndacampus/${this.id}/review`
+      )
+      // Read collection
+      await docRef.get().then((snapshot) => {
+        const docs = snapshot.docs
+        this.temp.length = 0
+        for (const doc of docs) {
+          this.temp.push(doc.data())
+        }
+      })
+    },
     toggleMode() {
       this.editMode = !this.editMode
     },
-    submit() {
-      const dbReviews = db.collection('reviews')
-      dbReviews.add({
-        rating: this.rating,
-        post: this.post,
-      })
+    async submit() {
+      const dbReviews = db.collection(
+        `courses/campus/sanndacampus/${this.id}/review`
+      )
+      await dbReviews
+        .add({
+          rating: this.writtenReview.rating,
+          post: this.writtenReview.post,
+        })
+        .then(this.readSample)
       this.editMode = !this.editMode
     },
   },

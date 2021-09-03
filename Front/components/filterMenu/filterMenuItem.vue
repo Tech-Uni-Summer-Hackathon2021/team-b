@@ -2,13 +2,14 @@
   <v-row align="center">
     <v-col cols="20">
       <v-select
-        menu-props="auto"
+        v-model="current"
+        :items="selectedList"
         :label="label"
         :prepend-inner-icon="icon"
-        :items="item"
         dense
+        menu-props="auto"
         solo
-      ></v-select>
+      />
     </v-col>
   </v-row>
 </template>
@@ -19,7 +20,18 @@ export default {
   props: {
     label: String,
     icon: String,
-    item: String,
+    selectedList: Array,
+  },
+  data() {
+    return { first: '', current: '' }
+  },
+  watch: {
+    current() {
+      this.$emit('value-select', [this.first, this.current])
+    },
+  },
+  mounted() {
+    this.first = this.label
   },
 }
 </script>

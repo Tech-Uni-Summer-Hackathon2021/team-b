@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar fixed app>
       <v-btn icon @click="goHome">
-        <v-icon>mdi-home</v-icon>
+        <img src="~/assets/icon.jpg" height="30" />
       </v-btn>
 
       <v-toolbar-title v-text="title" />
@@ -19,12 +19,12 @@
 export default {
   data() {
     return {
-      title: 'App name',
+      title: 'KG_Hack',
     }
   },
   methods: {
     goHome() {
-      this.$router.push('/')
+      window.location.href = '/'
     },
   },
 }

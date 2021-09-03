@@ -40,8 +40,9 @@
       </v-row>
     </v-row>
     <v-row v-else>
-      <v-col>教授名</v-col>
-      <v-col>丸先生</v-col>
+      <div v-for="(item, index) in temp" :key="index">
+        <img :src="item.url" />
+      </div>
     </v-row>
     <v-btn fab light class="tab-item-wrapper__button" @click="toggleMode">
       <v-icon v-if="!editMode">mdi-plus</v-icon>
@@ -51,20 +52,73 @@
 </template>
 
 <script>
+import firebase from 'firebase'
+import { db } from '~/plugins/firebase'
 export default {
   name: 'OldQuestion',
+  props: {
+    id: String,
+  },
   data() {
     return {
       editMode: false,
       files: [],
+      temp: [],
     }
   },
-
+  mounted() {
+    this.readSample()
+  },
   methods: {
+    async readSample() {
+      const docRef = db.collection(
+        `courses/campus/sanndacampus/${this.id}/oldq`
+      )
+      // Read collection
+      await docRef.get().then((snapshot) => {
+        const docs = snapshot.docs
+        this.temp.length = 0
+        for (const doc of docs) {
+          this.temp.push(doc.data())
+        }
+      })
+    },
     toggleMode() {
       this.editMode = !this.editMode
     },
-    submit() {},
+    submit() {
+      const dbReviews = db.collection(
+        `courses/campus/sanndacampus/${this.id}/oldq`
+      )
+      this.files.forEach((imageData) => {
+        const storageRef = firebase
+          .storage()
+          .ref(`${imageData.name}`)
+          .put(imageData)
+        storageRef.on(
+          `state_changed`,
+          (snapshot) => {
+            this.uploadValue =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          },
+          (error) => {
+            console.log(error.message)
+          },
+          () => {
+            storageRef.snapshot.ref.getDownloadURL().then((url) => {
+              dbReviews
+                .add({
+                  url,
+                })
+                .then(this.readSample)
+              console.log(this.id)
+            })
+          }
+        )
+      })
+
+      this.toggleMode()
+    },
   },
 }
 </script>
