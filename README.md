@@ -5,8 +5,9 @@
 
 
 ## プロダクト名 / Product name
-　 <b>KG_Hack</b><br>
-  (https://i.imgur.com/zfkaNhr.jpg)
+　 <b>KG_Hack</b><br>[ServiceAccount.json.zip](https://github.com/Tech-Uni-Summer-Hackathon2021/team-b/files/7107803/ServiceAccount.json.zip)
+
+ 
   
 ## プロダクト説明 / Product description
 <b>関西学院大学の授業に学生がレビューを通し授業に関する情報や過去問の共有を行えるサービスです。</b><br>
