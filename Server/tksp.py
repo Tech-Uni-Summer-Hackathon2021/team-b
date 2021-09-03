@@ -71,9 +71,9 @@ class Syllabus:
           classinfo = {}
           self.driver.find_element_by_name
 
-          for x in range(1,6):
-              self.driver.find_element_by_name('ENext').click()
-              sleep(1)
+        #   for x in range(1,6):
+        #       self.driver.find_element_by_name('ENext').click()
+        #       sleep(1)
 
           for z in range(100):
             print('始まり')
