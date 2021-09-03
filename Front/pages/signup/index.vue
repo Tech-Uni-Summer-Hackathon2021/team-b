@@ -63,7 +63,6 @@ export default {
     },
   }),
   mounted() {
-    console.log(process.env.FIREBASE_API_KEY)
     this.starturl = this.$route.query.url
   },
   methods: {
@@ -83,7 +82,7 @@ export default {
       this.$nuxt.$loading.start()
       try {
         await func()
-        this.$router.push('/')
+        this.$router.push('/class')
       } catch (error) {
         console.log(error)
       }
