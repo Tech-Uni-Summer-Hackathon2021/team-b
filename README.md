@@ -5,19 +5,34 @@
 
 
 ## プロダクト名 / Product name
-　 <b>KG_Hack</b>
+　 <b>KG_Hack</b><br>
+  (https://i.imgur.com/zfkaNhr.jpg)
+  
 ## プロダクト説明 / Product description
 <b>関西学院大学の授業に学生がレビューを通し授業に関する情報や過去問の共有を行えるサービスです。</b><br>
 ユーザーは授業を検索し各授業ページからレビューの書き込みと過去問のアップロード、またその閲覧ができます。<br>
 履修登録の期間にたくさんの友達や先輩におすすめの授業や気になる授業の評判を聞いてまわったり、試験前に過去問の入手に奔走する時間を減らすことができます。<br>
 
-<b>This is a service where students can review Kwansei Gakuin University classes and share information about the classes and past examination.</b><br>
-Users can search for classes, and from each class page, they can write reviews, upload past questions, and also view them.<br>
-This will reduce the amount of time they would have to spend asking their friends and seniors for recommendations and reviews of classes they are interested in during the registration period, or scrambling to get past exam questions before the exam.
+<b>This is a service where students can review Kwansei Gakuin University's courses and share information about those courses.</b><br>
+Users can search for suitable courses from the reviews and ratings that are posted by seniors and from the syllabus information<br>
+In addtion, through uploaded old questions, users can figure out what they will be dealing in the exam.<br>
+This will save user's time that they would have to spend asking their friends and seniors for recommendations of the courses they are interested in and they can save time and energy during exam seasons. <br>
+This can definately help them to find the most suitable courses and reduce the risks of choosing the wrong one.<br>
 
-## 利用方法 / Hou to use
+## 利用方法 / How to use
+* サインアップする
+* ログインする
+* キーワードで授業検索（条件で絞り込む）
+* シラバス情報、レビュー、レーティング、過去問が確認できる
 
-## 使用技術 / Technology used
+* signup
+* login
+* search with keywords for the course(filter by conditons)
+* check information on syllabus, reviews, rating and posted old questions
+
+## 使用技術 / Used Technology
 Front-end : Vue.js (Nuxt.js) <br>
-back-end : Python (Selenium / BeautifulSoup) <br>
-Detabase : Firebase
+framework design: Vuetify<br>
+back-end : Python (Selenium / BeautifulSoup)<br>
+Database : Firebase<br>
+Database search engine : algolia Api
