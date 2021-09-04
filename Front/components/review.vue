@@ -29,7 +29,6 @@
 
             <div class="text-center mt-12">
               <v-rating
-                :key=""
                 color="orange"
                 background-color="grey darken-1"
                 value="{{item.rating}}"
