@@ -22,7 +22,25 @@
       </div>
     </v-row>
     <v-row v-else>
-      <div v-for="(item, index) in temp" :key="index">{{ item }}</div>
+      <div v-for="(item, index) in temp" :key="index">
+        <v-card class="elevation-16 mx-auto" width="300">
+          <v-card-text>
+            {{ item.post }}
+
+            <div class="text-center mt-12">
+              <v-rating
+                v-model="rating"
+                color="yellow darken-3"
+                background-color="grey darken-1"
+                half-increments
+                hover
+                large
+                value="{{item.rating}}"
+              ></v-rating>
+            </div>
+          </v-card-text>
+        </v-card>
+      </div>
     </v-row>
     <v-btn fab light class="tab-item-wrapper__button" @click="toggleMode">
       <v-icon v-if="!editMode">mdi-pencil</v-icon>
@@ -45,9 +63,6 @@ export default {
       writtenReview: {
         rating: '',
         post: '',
-        userid: '',
-        date: '',
-        classid: '',
       },
       editMode: false,
     }
