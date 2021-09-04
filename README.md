@@ -19,15 +19,16 @@ This will save user's time that they would have to spend asking their friends an
 This can definately help them to find the most suitable courses and reduce the risks of choosing the wrong one.<br>
 
 ## 利用方法 / How to use
-* サインアップする
-* ログインする
+
 * キーワードで授業検索（条件で絞り込む）
 * シラバス情報、レビュー、レーティング、過去問が確認できる<br>
+* レビュー書く
+* 過去問ファイルを載せる
 
-* signup
-* login
 * search with keywords for the course(filter by conditons)
 * check information on syllabus, reviews, rating and posted old questions
+* write reviews
+* upload old exam questions
 
 ## 使用技術 / Used Technology
 Front-end : Vue.js (Nuxt.js) <br>
