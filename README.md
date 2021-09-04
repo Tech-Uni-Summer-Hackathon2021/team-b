@@ -32,7 +32,7 @@ This can definately help them to find the most suitable courses and reduce the r
 
 ## 使用技術 / Used Technology
 Front-end : Vue.js (Nuxt.js) <br>
-framework design: Vuetify<br>
-back-end : Python (Selenium / BeautifulSoup)<br>
+Framework design: Vuetify<br>
+Back-end : Python (Selenium / BeautifulSoup)<br>
 Database : Firebase<br>
 Database search engine : algolia Api
