@@ -29,13 +29,10 @@
 
             <div class="text-center mt-12">
               <v-rating
-                v-model="rating"
-                color="yellow darken-3"
+                :key="index"
+                color="orange"
                 background-color="grey darken-1"
-                half-increments
-                hover
-                large
-                value="{{item.rating}}"
+                :value="item.rating"
               ></v-rating>
             </div>
           </v-card-text>
